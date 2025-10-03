@@ -1,8 +1,6 @@
 ﻿using BepInEx;
 using BepInEx.Logging;
 using System.Security.Permissions;
-using Fisobs.Core;
-using Creatures.LunarLizard;
 
 // Allows access to private members
 #pragma warning disable CS0618
@@ -40,6 +38,8 @@ sealed class Plugin : BaseUnityPlugin
 
     private void RegisterFisobs()
     {
-        Content.Register(new LunarLizardCritob());
+        Content.Register(new Creatures.LunarLizard.LunarLizardCritob());
+
+        Content.Register(new Items.ShoreCoco.ShoreCocoFisob());
     }
 }
