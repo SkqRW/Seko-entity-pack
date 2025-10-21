@@ -12,17 +12,19 @@ public class LunarLizardGraphics : LizardGraphics
         var state = Random.state;
         Random.InitState(ow.abstractPhysicalObject.ID.RandomSeed);
 
+        /*
 
         //limbs
         this.limbs = new LizardLimb[6];
         for (int i = 0; i < this.limbs.Length; i++)
         {
             int num = (i < 2) ? 0 : 2;
-                //num = i / 2;
-            
+            //num = i / 2;
+
             this.limbs[i] = new LizardLimb(this, base.owner.bodyChunks[num], i, 2.5f, 0.7f, 0.99f, this.lizard.lizardParams.limbSpeed, this.lizard.lizardParams.limbQuickness, (i % 2 == 1) ? this.limbs[i - 1] : null);
             list.Add(this.limbs[i]);
         }
+        */
 
 
         //tail

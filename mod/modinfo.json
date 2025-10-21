@@ -1,11 +1,11 @@
 ﻿{
-  "id": "testmod",
-  "name": "Test Mod",
-  "version": "0.1.0",
+  "id": "seko_entity_pack",
+  "name": "Seko Mini Entity Pack",
+  "version": "0.0.1",
   "authors": "Author",
   "description": "Put a neat description here",
   "tags": [],
-  "requirements": [],
-  "requirements_names": [],
+  "requirements": ["fisobs"],
+  "requirements_names": ["Fisobs"],
   "checksum_override_version": false
 }

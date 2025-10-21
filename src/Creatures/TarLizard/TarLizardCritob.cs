@@ -5,16 +5,16 @@ using System.Collections.Generic;
 using UnityEngine;
 using Fisobs.Sandbox;
 
-namespace Creatures.LunarLizard;
+namespace Creatures.TarLizard;
 
-sealed class LunarLizardCritob : Critob
+sealed class TarLizardCritob : Critob
 {
-    internal LunarLizardCritob() : base(Enums.CreatureTemplateType.LunarLizard)
+    internal TarLizardCritob() : base(Enums.CreatureTemplateType.TarLizard)
     {
-        Icon = new SimpleIcon("Kill_Standard_Lizard", Color.yellow);
+        Icon = new SimpleIcon("Kill_Standard_Lizard", Color.gray);
         LoadedPerformanceCost = 50f;
         SandboxPerformanceCost = new(.5f, .5f);
-        RegisterUnlock(KillScore.Configurable(9), Enums.SandboxUnlockID.LunarLizard, MultiplayerUnlocks.SandboxUnlockID.Slugcat);
+        RegisterUnlock(KillScore.Configurable(9), Enums.SandboxUnlockID.TarLizard, MultiplayerUnlocks.SandboxUnlockID.Slugcat);
     }
 
     public override int ExpeditionScore() => 9;
@@ -23,7 +23,7 @@ sealed class LunarLizardCritob : Critob
 
     public override Color DevtoolsMapColor(AbstractCreature acrit) => Color.white;
 
-    public override string DevtoolsMapName(AbstractCreature acrit) => "LunL";
+    public override string DevtoolsMapName(AbstractCreature acrit) => "Tar";
 
     
     public override IEnumerable<RoomAttractivenessPanel.Category> DevtoolsRoomAttraction() =>
@@ -48,12 +48,12 @@ sealed class LunarLizardCritob : Critob
         }
     }
 
-    public override IEnumerable<string> WorldFileAliases() => ["lunar lizard", "lunarlizard", "lunar"];
+    public override IEnumerable<string> WorldFileAliases() => ["tar lizard", "tarlizard", "tar"];
 
     //public override ArtificialIntelligence? CreateRealizedAI(AbstractCreature acrit) => new LunarLizardAI(acrit, acrit.world);
     public override ArtificialIntelligence? CreateRealizedAI(AbstractCreature acrit) => new LizardAI(acrit, acrit.world);
 
-    public override Creature CreateRealizedCreature(AbstractCreature acrit) => new LunarLizard(acrit, acrit.world);
+    public override Creature CreateRealizedCreature(AbstractCreature acrit) => new TarLizard(acrit, acrit.world);
 
     public override CreatureState CreateState(AbstractCreature acrit) => new LizardState(acrit);
 

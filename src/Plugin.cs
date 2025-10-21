@@ -32,13 +32,15 @@ sealed class Plugin : BaseUnityPlugin
         // Initialize assets, your mod config, and anything that uses RainWorld here
         Logger.LogDebug("Hello world!");
 
+        Creatures.TarLizard.Hooks.Init();
         Creatures.LunarLizard.Main.Init();
 
     }
 
     private void RegisterFisobs()
     {
-        Content.Register(new Creatures.Butterflies.ButterfliesCritob());
+        //Content.Register(new Creatures.Butterflies.ButterfliesCritob());
+        Content.Register(new Creatures.TarLizard.TarLizardCritob());
         Content.Register(new Creatures.LunarLizard.LunarLizardCritob());
 
         Content.Register(new Items.ShoreCoco.ShoreCocoFisob());
