@@ -49,6 +49,9 @@ public partial class ShoreCoco : Rock
 
     private void Broke()
     {
+        // Obtener la velocidad actual del coco para usar como velocidad de impacto
+        Vector2 currentVelocity = base.firstChunk.vel;
+        
         if (this.room.BeingViewed)
         {
             for (int i = 0; i < spark_iteration; i++)
@@ -56,11 +59,11 @@ public partial class ShoreCoco : Rock
                 this.room.AddObject(new Spark(base.firstChunk.pos + Custom.DegToVec(UnityEngine.Random.value * 360f) * UnityEngine.Random.value * 10f, Custom.DegToVec(UnityEngine.Random.value * 360f) * 10f * UnityEngine.Random.value, new Color(1f, 1f, 1f), null, 2, 4));
             }
             
-            // Agregar efecto de agua derramándose
+            // Agregar efecto de agua derramándose con velocidad de impacto
             for (int i = 0; i < 3; i++)
             {
                 Vector2 spillDirection = Custom.DegToVec(UnityEngine.Random.value * 180f - 90f); // Hacia abajo principalmente
-                this.room.AddObject(new CocoWater(base.firstChunk.pos, spillDirection * (5f + UnityEngine.Random.value * 10f)));
+                this.room.AddObject(new CocoWater(base.firstChunk.pos, currentVelocity));
             }
         }
         
@@ -70,7 +73,6 @@ public partial class ShoreCoco : Rock
         // MAKE THE SEED OBJECT HERE
         UnityEngine.Debug.Log("ShoreCoco Broke");
 
-        this.room.AddObject(new CocoWater(this.firstChunk.pos, Vector2.zero));
         AbstractPhysicalObject abstractPhysicalObject = new AbstractPhysicalObject(this.room.world, AbstractPhysicalObject.AbstractObjectType.Rock, null, room.GetWorldCoordinate(this.firstChunk.pos), this.room.game.GetNewID());
         Rock slimeMold = new Rock(abstractPhysicalObject, this.room.world);
         slimeMold.PlaceInRoom(this.room);

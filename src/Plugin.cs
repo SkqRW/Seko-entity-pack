@@ -38,8 +38,10 @@ sealed class Plugin : BaseUnityPlugin
 
     private void RegisterFisobs()
     {
+        Content.Register(new Creatures.Butterflies.ButterfliesCritob());
         Content.Register(new Creatures.LunarLizard.LunarLizardCritob());
 
         Content.Register(new Items.ShoreCoco.ShoreCocoFisob());
+        Logger.LogDebug("Fisobs registered.");
     }
 }
