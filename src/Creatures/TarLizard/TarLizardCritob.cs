@@ -19,9 +19,9 @@ sealed class TarLizardCritob : Critob
 
     public override int ExpeditionScore() => 9;
 
-    public override CreatureTemplate.Type? ArenaFallback() => CreatureTemplate.Type.WhiteLizard;
+    public override CreatureTemplate.Type? ArenaFallback() => CreatureTemplate.Type.GreenLizard;
 
-    public override Color DevtoolsMapColor(AbstractCreature acrit) => Color.white;
+    public override Color DevtoolsMapColor(AbstractCreature acrit) => Color.gray;
 
     public override string DevtoolsMapName(AbstractCreature acrit) => "Tar";
 
@@ -51,7 +51,7 @@ sealed class TarLizardCritob : Critob
     public override IEnumerable<string> WorldFileAliases() => ["tar lizard", "tarlizard", "tar"];
 
     //public override ArtificialIntelligence? CreateRealizedAI(AbstractCreature acrit) => new LunarLizardAI(acrit, acrit.world);
-    public override ArtificialIntelligence? CreateRealizedAI(AbstractCreature acrit) => new LizardAI(acrit, acrit.world);
+    public override ArtificialIntelligence? CreateRealizedAI(AbstractCreature acrit) => new TarLizardAI(acrit, acrit.world);
 
     public override Creature CreateRealizedCreature(AbstractCreature acrit) => new TarLizard(acrit, acrit.world);
 

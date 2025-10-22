@@ -39,7 +39,7 @@ public class Hooks
 			breedParams.tailColorationStart = 0.05f;
 			breedParams.tailColorationExponent = 4f;
             temp.name = "TarLizard";
-            temp.throwAction = "Hiss";
+            temp.throwAction = "Spit";
             temp.requireAImap = true;
             temp.doPreBakedPathing = false;
             breedParams.standardColor = new Color(27/255f, 32/255f, 36/255f);
