@@ -19,20 +19,10 @@ public class TarLizardAI : LizardAI
     public override void Update()
     {
         base.Update();
+        UnityEngine.Debug.Log($"TarLizardAI Update - Current behavior: {this.behavior} | Spitting: {this.redSpitAI.spitting}");
         if (this.redSpitAI.spitting)
         {
-            this.lizard.EnterAnimation(Lizard.Animation.Spit, false);
+            this.lizard.EnterAnimation(Lizard.Animation.Spit, true);
         }
-        UnityEngine.Debug.Log($"TarLizardAI Update - Current behavior: {this.behavior}");
-    }
-
-
-    protected new virtual void AggressiveBehavior(Tracker.CreatureRepresentation target, float tongueChance)
-    {
-        base.AggressiveBehavior(target, tongueChance);
-        if (target.VisualContact)
-		{
-			this.lizard.JawOpen = Mathf.Clamp(this.lizard.JawOpen + 0.4f, 0f, 1f);
-		}
     }
 }
